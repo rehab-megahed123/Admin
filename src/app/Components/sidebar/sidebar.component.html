@@ -1,0 +1,27 @@
+
+<div class="menu-toggle" (click)="toggleSidebar()">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</div>
+
+<!-- الـ Sidebar -->
+<div class="sidebar" [class.open]="isSidebarOpen">
+  <ul class="menu-list">
+    <li *ngFor="let item of menuItems">
+      <div class="menu-item" (click)="toggle(item.id)">
+        <a *ngIf="!item.children?.length" [routerLink]="item.route">{{ item.nameEn }}</a>
+        <span *ngIf="item.children?.length">{{ item.nameEn }}</span>
+        <span *ngIf="item.children?.length" class="arrow">
+          {{ expandedItem === item.id ? '▾' : '▸' }}
+        </span>
+      </div>
+
+      <ul *ngIf="expandedItem === item.id && item.children?.length" class="submenu">
+        <li *ngFor="let child of item.children">
+          <a [routerLink]="child.route">{{ child.nameEn }}</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

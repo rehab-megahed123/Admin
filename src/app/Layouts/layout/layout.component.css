@@ -1,0 +1,39 @@
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+
+/* Sidebar */
+app-sidebar {
+  width: 250px; /* العرض ثابت */
+  background-color: #3b5d50;
+  color: white;
+  flex-shrink: 0;
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+/* Main content */
+.content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #fff;
+  overflow-y: auto;
+}
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+  }
+
+  app-sidebar {
+    width: 100%;
+    min-height: auto;
+    position: relative;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}

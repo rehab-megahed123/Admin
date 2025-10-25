@@ -1,0 +1,79 @@
+<div class="login-wrapper">
+  <div class="login-box">
+    <h2 class="login-title">Login</h2>
+
+    <!-- ✅ Notification Messages -->
+    <div *ngIf="successMessage" class="notification success">
+      <i class="fa fa-check-circle"></i>
+      {{ successMessage }}
+    </div>
+
+    <div *ngIf="errorMessage" class="notification error">
+      <i class="fa fa-exclamation-circle"></i>
+      {{ errorMessage }}
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email"> Email</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="Enter your email"
+        />
+        <div
+          class="error"
+          *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+        >
+          <small *ngIf="loginForm.get('email')?.errors?.['required']">
+              Email is required
+          </small>
+          <small *ngIf="loginForm.get('email')?.errors?.['email']">
+            Invalid Email
+          </small>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password </label>
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          placeholder="Enter your password"
+        />
+        <div
+          class="error"
+          *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+        >
+          <small *ngIf="loginForm.get('password')?.errors?.['required']">
+            Password is required
+          </small>
+          <small *ngIf="loginForm.get('password')?.errors?.['minlength']">
+            Must be at least 6 characters long
+          </small>
+        </div>
+      </div>
+      
+      <div class="remember-me">
+        <label>
+          <input type="checkbox" formControlName="rememberMe" />
+          Remember Me
+        </label>
+      </div>
+
+      <button type="submit" class="btn-login" [disabled]="loginForm.invalid || isSubmitting">
+        <span *ngIf="!isSubmitting">Login</span>
+        <i *ngIf="isSubmitting" class="fa fa-spinner fa-spin"></i>
+      </button>
+
+      <div class="login-links">
+        <a ></a>
+        <a routerLink="/send-otp">Forget Password?</a>
+      </div>
+    </form>
+  </div>
+</div>

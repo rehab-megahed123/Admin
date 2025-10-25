@@ -1,0 +1,29 @@
+<div class="favourites-container" *ngIf="!isLoading; else loading">
+ 
+
+  <div *ngIf="companies.length > 0; else emptyList" class="favourites-grid">
+    <div *ngFor="let company of companies" class="favourite-card">
+      <div class="image-container">
+        <img [src]="root + company.logoUrl" alt="{{ company.nameEn }}" />
+      </div>
+
+      <div class="info">
+        <h5>{{ company.nameEn }}</h5>
+        <p class="text-muted mb-1">{{ company.email }}</p>
+        <p>{{ company.phoneNumber }}</p>
+        <a [href]="company.websiteUrl" target="_blank" class="btn btn-link">Visit Website</a>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #emptyList>
+    <p class="text-center text-muted"> No Companies To View</p>
+  </ng-template>
+</div>
+
+<ng-template #loading>
+  <div class="loading text-center mt-5">
+    <i class="fa fa-spinner fa-spin fa-2x"></i>
+    <p>  ... Loading</p>
+  </div>
+</ng-template>
