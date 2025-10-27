@@ -59,11 +59,18 @@
 }
 
 /* ===== Logo ===== */
+.logo-container {
+  width: 100%;
+  max-width: 800px;     
+  margin: 0 auto 1.5rem;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
 .rookie-rise-logo {
-  height: 45px;
-  margin-bottom: 1.5rem;
-  max-width: 80%;
-  object-fit: contain;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ===== Titles ===== */

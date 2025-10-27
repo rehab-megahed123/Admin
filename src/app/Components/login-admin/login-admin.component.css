@@ -1,20 +1,23 @@
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0; /* Ensures no default body margin */
-  padding: 0; /* Ensures no default body padding */
-  overflow: hidden;
-  position: relative;
-  height: 100vh;
-  width: 100vw;
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100dvh;
+  overflow-x: hidden;
 }
 
 .background-image-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100dvh;
   overflow: hidden;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  
+  height: 100dvh;
 }
 
 .login-background-image {
@@ -22,19 +25,22 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
+ 
+  object-fit: cover;
+ 
 }
 
 .login-form-overlay {
   position: relative;
-  z-index: 1;
-  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
-background-color: transparent;
-  /* Add this to stretch the flex container to fill vertical space */
-  flex-direction: column; /* Ensure it's a column flex container for centering */
+  box-sizing: border-box;
+  z-index: 1;
 }
 
 .login-card {
@@ -114,9 +120,18 @@ background-color: transparent;
     background-color: transparent; /* Ensure transparent even in media queries */
   }
 }
+.logo-container {
+  width: 100%;
+  max-width: 800px;     
+  margin: 0 auto 1.5rem;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
 .rookie-rise-logo {
-  height: 40px;
-  width: auto;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 .login-title {
   font-size: 1.8rem;
@@ -461,4 +476,9 @@ html, body {
   width: 100%;
   max-width: 700px;
   height: auto; /* ما يتمددش بطول الصفحة */
+}
+@media (max-width: 576px) {
+  .login-background-image {
+    object-position: center 30%; /* يركز على الجزء العلوي لو فيه لوغو */
+  }
 }
