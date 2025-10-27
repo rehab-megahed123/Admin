@@ -1,135 +1,171 @@
-.login-wrapper {
+/* ===== Background Image Styling ===== */
+.background-image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+.form-label {
+  font-weight: 500;
+  border-color: #000000;
+  color: #25202e;
+  margin-bottom: 0.5rem;
+  margin-left:0;
+  display:block;
+  text-align:left;
+}
+.form-control {
+  border-radius: 13px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #000000;
+}
+.form-control:focus {
+  border-color: #925FE2;
+  box-shadow: 0 0 0 0.25rem rgba(146, 95, 226, 0.25);
+}
+
+.login-background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== Overlay for Blur Effect ===== */
+.login-form-overlay {
+  /* background-color: rgba(255, 255, 255, 0.85); */
+  /* backdrop-filter: blur(6px); */
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 90vh;
-  background-color: #eff2f1;
+  min-height: 100vh;
+  padding: 20px;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.login-box {
+/* ===== Card ===== */
+.login-card {
   background: #fff;
-  padding: 40px 50px;
-  border-radius: 10px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 420px;
-}
-
-.login-title {
+  max-width: 400px;
   text-align: center;
-  color: #3b5d50;
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
 }
 
-.form-group {
-  margin-bottom: 25px;
-  position: relative;
+/* ===== Logo ===== */
+.rookie-rise-logo {
+  height: 45px;
+  margin-bottom: 1.5rem;
+  max-width: 80%;
+  object-fit: contain;
 }
 
-.form-group label {
-  display: block;
-  font-weight: 500;
+/* ===== Titles ===== */
+.login-title {
+  font-size: 1.8rem;
+  font-weight: 600;
   color: #333;
-  margin-bottom: 8px;
+  margin-bottom: 1.5rem;
 }
 
-.form-group input {
+/* ===== Form Controls ===== */
+.form-control {
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: #925FE2;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 500;
   width: 100%;
-  padding: 12px 15px;
-  border: 1.5px solid #ccc;
-  border-radius: 6px;
-  font-size: 15px;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
-.form-group input:focus {
-  border-color: #3b5d50;
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(59, 93, 80, 0.1);
+.btn-primary:hover {
+  background-color: #7a49d6;
 }
 
-.error {
+/* ===== Messages ===== */
+.alert {
+  font-size: 0.9rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+/* ===== Back to Login ===== */
+.back-to-login {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #925FE2;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.back-to-login:hover {
+  text-decoration: underline;
+  color: #7a49d6;
+}
+
+/* ===== Validation ===== */
+.validation-error-message {
   color: #d9534f;
-  font-size: 13px;
+  font-size: 0.85rem;
+  text-align: left;
   margin-top: 5px;
 }
 
-.btn-login {
+/* ===== Responsive Breakpoints ===== */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+  .login-title {
+    font-size: 1.5rem;
+  }
+  .form-control {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 1.2rem;
+    max-width: 95%;
+  }
+  .rookie-rise-logo {
+    height: 35px;
+  }
+  .login-title {
+    font-size: 1.3rem;
+  }
+  .form-control {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+  .btn-primary {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
+/* ===== Prevent Scrollbars ===== */
+html, body {
   width: 100%;
-  background-color: #3b5d50;
-  color: #fff;
-  font-size: 16px;
-  padding: 12px 0;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.btn-login:hover {
-  background-color: #2d4a43;
-}
-
-.btn-login:disabled {
-  background-color: #9ea9a5;
-  cursor: not-allowed;
-}
-
-.login-links {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.login-links a {
-  color: #3b5d50;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.login-links a:hover {
-  text-decoration: underline;
-}
-.notification {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 18px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 500;
-  margin-bottom: 20px;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-.notification i {
-  margin-left: 8px;
-  font-size: 18px;
-}
-
-.notification.success {
-  background-color: rgba(59, 93, 80, 0.1);
-  color: #2e624f;
-  border: 1px solid #3b5d50;
-}
-
-.notification.error {
-  background-color: rgba(217, 83, 79, 0.1);
-  color: #d9534f;
-  border: 1px solid #d9534f;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
 }

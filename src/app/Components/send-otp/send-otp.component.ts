@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ForgotPasswordService } from '../../Services/forgotPasswordService';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-send-otp',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule,RouterLink],
   templateUrl: './send-otp.component.html',
   styleUrl: './send-otp.component.css'
 })

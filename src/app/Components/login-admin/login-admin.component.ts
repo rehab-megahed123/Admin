@@ -15,8 +15,19 @@ export class LoginAdminComponent implements OnInit {
   isSubmitting = false;
   successMessage = '';
   errorMessage = '';
+  currentLang: string = 'en';
+  
+  
+  isPasswordVisible = false;
+  
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+     this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      rememberMe: [false]
+    });
+  }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -73,6 +84,9 @@ export class LoginAdminComponent implements OnInit {
         }, 3000);
       },
     });
+  }
+   togglePasswordVisibility() {
+    this.isPasswordVisible = !this.isPasswordVisible;
   }
 
 }
